@@ -1,5 +1,5 @@
 public class Solution {
-    //    1.
+    //    [1]两数之和
     public static int[] twoSum(int[] nums, int target) {
         int[] indexs=new int[2];
         for(int i=0; i<nums.length; i++){
@@ -13,4 +13,8 @@ public class Solution {
         }
         return null;
     }
+
+
+
+
 }

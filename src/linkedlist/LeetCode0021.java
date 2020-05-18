@@ -45,9 +45,13 @@ public class LeetCode0021 {
                 return l1;
             }
             ListNode tail = null;
-            ListNode tmp1 = l1;
-            l1 = l2;
-            l2 = tmp1;
+            ListNode tmp;
+//            始终保持l1 l2种了l1的val最小
+            if(l1.val > l2.val){
+                tmp = l1;
+                l1 = l2;
+                l2 = tmp;
+            }
             ListNode h = l1;
 
             while (true){
@@ -57,15 +61,19 @@ public class LeetCode0021 {
                     tail.next = l2;
                     break;
                 }
+                // 始终保持l1 l2种了l1的val最小
                 if(l1.val > l2.val){
                     tail.next = l2;
-                    ListNode tmp2 = l1;
+
+                    tmp = l1;
                     l1 = l2;
-                    l2 = tmp2;
+                    l2 = tmp;
                 }
             }
             return h;
         }
+
+
     }
     public static void main(String[] args) {
         LeetCode0021 lc = new LeetCode0021();

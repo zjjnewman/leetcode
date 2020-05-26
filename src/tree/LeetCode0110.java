@@ -55,7 +55,6 @@ public class LeetCode0110 {
             }
             return 1;
         }
-
         //求树高 官方改进版
         public int treeHight2(TreeNode root) {
             if(root == null){

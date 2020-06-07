@@ -34,7 +34,3 @@ public class LeetCode0112 {
         }
     }
 }
-
-class Solution{
-
-}

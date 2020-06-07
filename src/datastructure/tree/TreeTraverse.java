@@ -1,81 +1,9 @@
-package datastructure;
+package datastructure.tree;
 
-import com.sun.org.apache.xml.internal.resolver.readers.TR9401CatalogReader;
 
-import java.util.Deque;
+import datastructure.IStack;
+
 import java.util.LinkedList;
-import java.util.Stack;
-
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-    TreeNode() {}
-    TreeNode(int val) { this.val = val; }
-    TreeNode(int val, TreeNode left, TreeNode right) {
-        this.val = val;
-        this.left = left;
-        this.right = right;
-    }
-}
-
-public class Tree {
-    /**
-     *
-     *作为LeetCode的前置学习知识，参考天勤《数据结构:高分笔记》，把树类的算法实现根据需要实现一遍
-     *
-     *          10
-     *        /   \
-     *       5    -3
-     *     /  \     \
-     *    3   2     11
-     *  /  \   \
-     * 3   -2   1
-     */
-    public static void main(String[] args) {
-        TreeNode t1 = new TreeNode(10);
-        TreeNode t2 = new TreeNode(5);
-        TreeNode t3 = new TreeNode(-3);
-        TreeNode t4 = new TreeNode(3);
-        TreeNode t5 = new TreeNode(2);
-        TreeNode t6 = new TreeNode(11);
-        TreeNode t7 = new TreeNode(3);
-        TreeNode t8 = new TreeNode(-2);
-        TreeNode t9 = new TreeNode(1);
-        t1.left = t2;
-        t1.right = t3;
-        t2.left = t4;
-        t2.right = t5;
-        t3.right = t6;
-        t3.left = null;
-        t4.left = t7;
-        t4.right =t8;
-        t5.left = null;
-        t5.right = t9;
-        TreeTraverse treeTraverse = new TreeTraverse();
-
-        //递归先序遍历
-        treeTraverse.preOrderRecurse(t1);
-        System.out.println();
-        //迭代先序遍历
-        treeTraverse.preOrderIterate(t1);
-        System.out.println();
-
-        //递归中序
-        treeTraverse.inOrderRecurse(t1);
-        System.out.println();
-        //迭代中序
-        treeTraverse.inOrderIterate(t1);
-        System.out.println();
-
-        //递归后序
-        treeTraverse.postOrderRecurse(t1);
-        System.out.println();
-        //迭代后序
-        treeTraverse.postOrderIterate(t1);
-        System.out.println();
-    }
-}
 
 /**
  * 二叉树的遍历
@@ -94,17 +22,6 @@ class TreeTraverse{
     //先序遍历迭代实现
     public void preOrderIterate(TreeNode root){
         IStack<TreeNode> stack = new IStack<>();
-//        while (!stack.isEmpty()){
-//            System.out.print(root.val+"   ");
-//            stack.push(root);
-//            root = root.left;
-//            if(root == null){
-//                root = stack.pop();
-//                if(root.right != null){
-//                    root = root.right;
-//                }
-//            }
-//        }
         while (!stack.isEmpty() || root != null){
             while (root != null){
                 System.out.print(root.val+"   ");
@@ -171,5 +88,50 @@ class TreeTraverse{
             System.out.print(output.pop().val+ "   ");
         }
     }
-}
 
+
+    //层次遍历
+    //尝试加入记录层数
+    int level = 0;
+    //每层的节点数
+    int levelCntUp = 0;
+    int levelCntDown = 0;
+    public void levelTraverse(TreeNode root){
+        LinkedList<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        levelCntUp++;
+        level++;
+        TreeNode node;
+
+        while (queue.peek() != null){
+            node = queue.remove();
+            levelCntUp--;
+
+//            if(node.left != null || node.right != null){
+//                level++;
+//            }
+//            System.out.print(node.val + "   ");
+
+            if(node.left != null){
+                queue.add(node.left);
+                levelCntDown++;
+            }
+            if(node.right != null){
+                queue.add(node.right);
+                levelCntDown++;
+            }
+            if(node.right == null && node.left == null){
+                System.out.println("层数： " + level);
+                break;
+            }
+
+            if(levelCntUp == 0){
+                level++;
+                levelCntUp = levelCntDown;
+                levelCntDown = 0;
+//                System.out.println("层数： " + level);
+//                System.out.println("个数： "+levelCntUp);
+            }
+        }
+    }
+}

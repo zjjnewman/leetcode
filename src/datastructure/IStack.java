@@ -5,24 +5,24 @@ import java.util.LinkedList;
 public class IStack<T> {
     Node<T> top;
     Node<T> bottom;
+
     class Node<T>{
         T element;
         Node<T> next;
-        public Node(T element){
+        private Node(T element){
             this.element = element;
         }
     }
-
-    public <T> IStack(){};
 
     //出栈
     public T pop(){
         if(this.top == null){
             throw new RuntimeException("stack is empty");
         }
-        T element = this.top.element;
+        Node<T> node = this.top;
         this.top = top.next;
-        return element;
+        node.next = null;
+        return node.element;
     }
 
     public T push(T element){
@@ -39,7 +39,7 @@ public class IStack<T> {
         return element;
     }
 
-    boolean isEmpty(){
+    public boolean isEmpty(){
         return this.top == null;
     }
 }

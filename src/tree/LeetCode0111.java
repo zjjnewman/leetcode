@@ -123,7 +123,7 @@ public class LeetCode0111 {
                 return 1 + minDepth1(root.left);
             }
 
-            if(root.right != null && root.left == null){
+            if(root.left == null){
                 return 1 + minDepth1(root.right);
             }
 

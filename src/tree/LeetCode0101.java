@@ -19,9 +19,7 @@ public class LeetCode0101 {
             if(root == null){
                 return true;
             }
-            // IStack<TreeNode> stack1 = new IStack<>();
             LinkedList<TreeNode> stack1 = new LinkedList<>();
-            // IStack<TreeNode> stack2 = new IStack<>();
             LinkedList<TreeNode> stack2 = new LinkedList<>();
             TreeNode l = root.left;
             TreeNode r = root.right;
@@ -40,9 +38,11 @@ public class LeetCode0101 {
                     l = l.left;
                     r = r.right;
                 }
+
                 try{
                     l = stack1.pop();
                     l = l.right;
+
                     r = stack2.pop();
                     r = r.left;
                 } catch (Exception e){

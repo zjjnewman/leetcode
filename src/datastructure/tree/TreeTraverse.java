@@ -35,11 +35,17 @@ class TreeTraverse{
 
 
     //中序遍历递归
+    int i = 1;
     public void inOrderRecurse(TreeNode root){
         if (root != null) {
-            inOrderRecurse(root.left);
-            System.out.print(root.val+"   ");
+//            inOrderRecurse(root.left);
+//            System.out.print("第"+i+" "+root.val+"   ");
+//            i++;
+//            inOrderRecurse(root.right);
             inOrderRecurse(root.right);
+            System.out.print("第"+i+" "+root.val+"   ");
+            i++;
+            inOrderRecurse(root.left);
         }
     }
     //中序遍历迭代

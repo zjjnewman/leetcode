@@ -9,7 +9,7 @@ import java.util.LinkedList;
  * 二叉树的遍历
  * @date 2020-06-03
  */
-class TreeTraverse{
+public class TreeTraverse{
 
     //先序遍历递归实现
     public void preOrderRecurse(TreeNode root){
@@ -38,14 +38,16 @@ class TreeTraverse{
     int i = 1;
     public void inOrderRecurse(TreeNode root){
         if (root != null) {
-//            inOrderRecurse(root.left);
+            inOrderRecurse(root.left);
+            System.out.print(root.val + "   ");
 //            System.out.print("第"+i+" "+root.val+"   ");
 //            i++;
-//            inOrderRecurse(root.right);
             inOrderRecurse(root.right);
-            System.out.print("第"+i+" "+root.val+"   ");
-            i++;
-            inOrderRecurse(root.left);
+
+//            inOrderRecurse(root.right);
+//            System.out.print("第"+i+" "+root.val+"   ");
+//            i++;
+//            inOrderRecurse(root.left);
         }
     }
     //中序遍历迭代

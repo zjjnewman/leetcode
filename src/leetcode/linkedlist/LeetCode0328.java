@@ -1,6 +1,7 @@
 package leetcode.linkedlist;
 
 /**
+ * 328. 奇偶链表 https://leetcode-cn.com/problems/odd-even-linked-list/
  * @author jin
  */
 public class LeetCode0328 {

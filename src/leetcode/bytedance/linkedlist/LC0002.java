@@ -1,4 +1,4 @@
-package leetcode.bytedance;
+package leetcode.bytedance.linkedlist;
 
 /**
  * 2. 两数相加 https://leetcode-cn.com/problems/add-two-numbers/  445. 两数相加2 https://leetcode-cn.com/problems/add-two-numbers-ii/

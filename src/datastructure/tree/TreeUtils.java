@@ -124,6 +124,25 @@ public class TreeUtils {
     }
 
 
+    public int[] kmpNext(String str){
+        int i = 0;
+        int j = -1;
+        int[] next = new int[str.length()];
+        next[0] = -1;
+
+        while (i < str.length() - 1) {
+            if (j == -1 || str.charAt(i) == str.charAt(j)) {
+                i++;
+                j++;
+                next[i] = j;
+            } else {
+                j = next[j];
+            }
+        }
+        return next;
+    }
+
+
     public static void main(String[] args) {
         TreeNode t1 = new TreeNode(10);
         TreeNode t2 = new TreeNode(5);

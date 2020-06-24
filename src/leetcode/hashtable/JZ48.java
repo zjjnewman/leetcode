@@ -8,6 +8,7 @@ import java.util.Map;
  * @date 2020-06-16
  * 需要用到kmp(用到kmp这个错误，重新考虑)
  * 面试题48. 最长不含重复字符的子字符串 https://leetcode-cn.com/problems/zui-chang-bu-han-zhong-fu-zi-fu-de-zi-zi-fu-chuan-lcof/
+ * 3. 无重复字符的最长子串 https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/
  */
 public class JZ48 {
     class Solution {

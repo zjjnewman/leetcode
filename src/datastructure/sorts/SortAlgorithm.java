@@ -2,7 +2,7 @@ package datastructure.sorts;
 
 import java.util.Comparator;
 
-public interface SortAlghorithm {
+public interface SortAlgorithm {
 
     /**
      *

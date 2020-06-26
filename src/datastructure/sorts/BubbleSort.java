@@ -8,7 +8,7 @@ import java.util.Comparator;
  * 冒泡排序
  * 参考 https://github.com/TheAlgorithms/Java/blob/master/Sorts/BubbleSort.java
  */
-public class BubbleSort implements SortAlghorithm {
+public class BubbleSort implements SortAlgorithm {
 
     /**
      * @param array 未排序的

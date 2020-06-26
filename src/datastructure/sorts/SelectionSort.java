@@ -1,10 +1,9 @@
 package datastructure.sorts;
 
-import javax.net.ssl.SSLContext;
 import java.util.Arrays;
 import java.util.Comparator;
 
-public class SelectionSort implements SortAlghorithm{
+public class SelectionSort implements SortAlgorithm {
     /**
      * @param array
      * @return 已经排序的

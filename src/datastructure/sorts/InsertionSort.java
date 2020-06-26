@@ -3,7 +3,7 @@ package datastructure.sorts;
 import java.util.Arrays;
 import java.util.Comparator;
 
-public class InsertionSort implements SortAlghorithm {
+public class InsertionSort implements SortAlgorithm {
     /**
      * @param array
      * @return 已经排序的

@@ -3,7 +3,7 @@ package datastructure.sorts;
 import java.util.Comparator;
 
 //二分插入排序，前提是已经有序的
-public class BinaryInsertionSort implements SortAlghorithm{
+public class BinaryInsertionSort implements SortAlgorithm {
     /**
      * @param array
      * @return 已经排序的

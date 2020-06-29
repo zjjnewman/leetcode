@@ -1,5 +1,11 @@
 package datastructure.sorts;
 
+/**
+ * 决定应该在二分查找那里实现
+ *
+ * ----------留坑------------
+ */
+
 import java.util.Comparator;
 
 //二分插入排序，前提是已经有序的

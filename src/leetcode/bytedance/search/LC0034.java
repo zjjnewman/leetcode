@@ -17,7 +17,7 @@ public class LC0034 {
         int idx = -1;
 
         while (low <= high){
-            mid = low + (high - low)/2;
+            mid = low + (high - low)>>>1;
             if(nums[mid] == target){
                 idx = mid;
                 break;
@@ -48,10 +48,68 @@ public class LC0034 {
         }
     }
 
+
+    //上面的解法不能很符合题意，如若全部数组都是target 则算法时间复杂度退化成o(n)
+    //所以下面给出logn的本质解法，不要什么花里胡哨，只要本质。
+    public int lowBound(int[] nums, int target){
+        /**
+         * 下边界满足条件：
+         * 1. target的左边有数，且小于target
+         * 2. target的左边没数，即8是第一个数
+         */
+        int low = 0;
+        int high = nums.length - 1;
+        int mid;
+        while (low <= high){
+            //这里>>>有个坑，他比运算符优先级都要小，所以要加括号
+            mid = low + ((high - low)>>>1);
+
+            if(target == nums[mid] && (mid == 0 || target > nums[mid - 1])){
+                return mid;
+            } else if(target > nums[mid]){
+                low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
+        }
+        return -1;
+    }
+
+    public int highBound(int[] nums, int target){
+        /**
+         * 上边界满足：
+         * 0. 必有 上边界值 == target
+         * 1. 若target 右边有数，必有右边大于target
+         * 2. 若target 右边没数，target为length - 1
+         */
+        int low = 0;
+        int high = nums.length - 1;
+        int mid;
+
+        while (low <= high){
+            //这里>>>有个坑，他比运算符优先级都要小，所以要加括号
+            mid = low + ((high - low)>>>1);
+            if(target == nums[mid] && (mid == nums.length - 1 || nums[mid + 1] > target)){
+                return mid;
+            } else if(target < nums[mid]){
+                high = mid - 1;
+            } else {
+                low = mid + 1;
+            }
+        }
+        return -1;
+    }
+
+
+
     public static void main(String[] args) {
         LC0034 lc0034= new LC0034();
         int[] ints = new int[] {5,7,7,8,8,10};
-        int[] is = new int[]{1};
-        System.out.println(Arrays.toString(lc0034.searchRange(is, 1)));
+        int[] is = new int[]{1,1,2};
+//        System.out.println(Arrays.toString(lc0034.searchRange(is, 1)));
+
+        System.out.println(lc0034.lowBound(is, 1));
+        System.out.println(lc0034.highBound(is, 1));
+//        System.out.println((10 - 2 )>>>1 + 2);
     }
 }

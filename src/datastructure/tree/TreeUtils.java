@@ -1,8 +1,12 @@
 package datastructure.tree;
 
+import org.junit.jupiter.api.DynamicTest;
+
 import java.util.*;
 
-
+/**
+ * 树的序列化，反序列化
+ */
 public class TreeUtils {
     /**
      *
@@ -18,7 +22,7 @@ public class TreeUtils {
      */
 
     //树序列化
-    public String serialize(TreeNode root) {
+    public static String serialize(TreeNode root) {
 
         if(root == null){
             return "[]";
@@ -70,7 +74,7 @@ public class TreeUtils {
     }
 
     //树反序列化
-    public TreeNode deserialize(String data) {
+    public static TreeNode deserialize(String data) {
         if(data.equals("[]")){
             return null;
         }
@@ -142,6 +146,27 @@ public class TreeUtils {
         return next;
     }
 
+    public static boolean isSameTree(TreeNode r1, TreeNode r2){
+
+        if(r1 == null && r2 != null){
+            return false;
+        }
+        if(r2 == null && r1 != null){
+            return false;
+        }
+
+        if(r1 == null && r2 == null){
+            return true;
+        }
+
+        if(r1.val != r2.val){
+            return false;
+        }
+
+        return isSameTree(r1.left, r2.left) ||
+        isSameTree(r1.right, r2.right);
+    }
+
 
     public static void main(String[] args) {
         TreeNode t1 = new TreeNode(10);
@@ -163,31 +188,37 @@ public class TreeUtils {
         t4.right =t8;
         t5.left = null;
         t5.right = t9;
-        TreeTraverse treeTraverse = new TreeTraverse();
 
-        //递归先序遍历
-        treeTraverse.preOrderRecurse(t1);
-        System.out.println();
-        //迭代先序遍历
-        treeTraverse.preOrderIterate(t1);
-        System.out.println();
+        System.out.println(TreeUtils.serialize(t1));
+        TreeNode root = TreeUtils.deserialize(TreeUtils.serialize(t1));
+        System.out.println(isSameTree(t1, root));
 
-        //递归中序
-        treeTraverse.inOrderRecurse(t1);
-        System.out.println();
-        //迭代中序
-        treeTraverse.inOrderIterate(t1);
-        System.out.println();
-
-        //递归后序
-        treeTraverse.postOrderRecurse(t1);
-        System.out.println();
-        //迭代后序
-        treeTraverse.postOrderIterate(t1);
-        System.out.println();
-
-        //层次遍历
-        treeTraverse.levelTraverse(t1);
+//        TreeTraverse treeTraverse = new TreeTraverse();
+//        //递归先序遍历
+//        treeTraverse.preOrderRecurse(t1);
+//        System.out.println();
+//        //迭代先序遍历
+//        treeTraverse.preOrderIterate(t1);
+//        System.out.println();
+//
+//        //递归中序
+//        treeTraverse.inOrderRecurse(t1);
+//        System.out.println();
+//        //迭代中序
+//        treeTraverse.inOrderIterate(t1);
+//        System.out.println();
+//
+//        //递归后序
+//        treeTraverse.postOrderRecurse(t1);
+//        System.out.println();
+//        //迭代后序
+//        treeTraverse.postOrderIterate(t1);
+//        System.out.println();
+//
+//        //层次遍历
+//        treeTraverse.levelTraverse(t1);
 //        System.out.println(treeTraverse.level);
+
+
     }
 }

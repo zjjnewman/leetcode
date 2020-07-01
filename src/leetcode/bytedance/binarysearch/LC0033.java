@@ -2,6 +2,8 @@ package leetcode.bytedance.binarysearch;
 
 /**
  * 33. 搜索旋转排序数组 https://leetcode-cn.com/problems/search-in-rotated-sorted-array/
+ * 《300分钟搞定算法》https://www.bilibili.com/video/BV1SK411V7Lq?p=8
+ *
  * 二分搜索
  * ( 例如，数组 [0,1,2,4,5,6,7] 可能变为 [4,5,6,7,0,1,2] )。
  */
@@ -34,7 +36,6 @@ public class LC0033 {
                 }
 
             }
-
 
             /**
              * 这里关于下面注释了代码的边界，属于low mid 之间的左边界，所以应该归为 nums[low] <= nums[mid]的状况

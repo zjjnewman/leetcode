@@ -1,6 +1,4 @@
-package leetcode.bytedance.search;
-
-import java.util.Arrays;
+package leetcode.bytedance.binarysearch;
 
 /**
  * 34. 在排序数组中查找元素的第一个和最后一个位置 https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/
@@ -54,8 +52,10 @@ public class LC0034 {
     public int lowBound(int[] nums, int target){
         /**
          * 下边界满足条件：
-         * 1. target的左边有数，且小于target
-         * 2. target的左边没数，即8是第一个数
+         * 1. 下边界 = target
+         * 2. 下边界左边 != target
+         *      1. 下边界的左边有数，且小于target
+         *      2. 下边界的左边没数，即8是第一个数
          */
         int low = 0;
         int high = nums.length - 1;
@@ -78,9 +78,10 @@ public class LC0034 {
     public int highBound(int[] nums, int target){
         /**
          * 上边界满足：
-         * 0. 必有 上边界值 == target
-         * 1. 若target 右边有数，必有右边大于target
-         * 2. 若target 右边没数，target为length - 1
+         * 1. 必有 上边界值 == target
+         * 2. 上边界值 的右边必须不等于上边界
+         *      1. 若target 右边有数，必有右边大于target
+         *      2. 若target 右边没数，target为length - 1
          */
         int low = 0;
         int high = nums.length - 1;

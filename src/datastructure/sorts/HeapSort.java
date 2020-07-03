@@ -30,6 +30,7 @@ public class HeapSort implements SortAlgorithm {
 
 
     // 针对头结点点的堆调整
+
     public void adjustHeadNodeForBigHeap(Integer[] array, int low, int high){
         // i为起始点
         int i = low;
@@ -53,34 +54,28 @@ public class HeapSort implements SortAlgorithm {
         }
     }
 
+    /**
+     * 有bug，需要判断边界条件 array.len == 1的条件
+     * @param array
+     */
     public void makeBigHeap(Integer[] array){
         // 每一个叶子节点可以视为一个 大顶堆，然后针对倒数第一个父节点，作为需要调整的堆头结点，调用上面方法
         // 倒数第一个父节点的计算方法为  (array.length - 1 - 1)/2
+        if(array.length == 1){
+            return;
+        }
         for (int i = ((array.length - 1 - 1)>>>1); i >= 0 ; i--) {
             adjustHeadNodeForBigHeap(array, i, array.length - 1);
         }
     }
 
     public static void main(String[] args) throws IOException {
-//        HeapSort heapSort = new HeapSort();
-//        // 堆化后序列为 [97, 76, 65, 49, 49, 13, 27, 38]
+        HeapSort heapSort = new HeapSort();
+        // 堆化后序列为 [97, 76, 65, 49, 49, 13, 27, 38]
 //        Integer[] is = new Integer[]{49, 38, 65, 97, 76, 13, 27, 49};
-//        heapSort.makeBigHeap(is);
-//        System.out.println(Arrays.toString(is));
-
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bufferedWriter = new BufferedWriter((new OutputStreamWriter(System.out)));
-        while (true){
-            String s = bufferedReader.readLine();
-            s = s.trim();
-            s = s.replaceAll("\\s+", ",");
-            bufferedWriter.write(s);
-            bufferedWriter.write("\r\n");
-            bufferedWriter.flush();
-        }
-
-//        String[] ss = s.split(",");
-//        System.out.println(Integer.parseInt(ss[0]));
+        Integer[] is = new Integer[]{49};
+        heapSort.makeBigHeap(is);
+        System.out.println(Arrays.toString(is));
 
     }
 

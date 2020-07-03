@@ -9,7 +9,7 @@ package leetcode.bytedance;
  * 决定先实现34题
  *
  *
- * -------------此题留坑---------------
+ * -------------此题无坑，但有瓜，需要好好品尝---------------
  */
 public class LC0004 {
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {

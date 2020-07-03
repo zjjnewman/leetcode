@@ -4,7 +4,7 @@ package leetcode.bytedance.binarysearch;
  * 34. 在排序数组中查找元素的第一个和最后一个位置 https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/
  * 上接 4. 寻找两个正序数组的中位数 https://leetcode-cn.com/problems/median-of-two-sorted-arrays/
  *
- * 二分查找
+ * 二分查找，觉得这种直接找上下边界的答题方式很清晰，比奇淫巧技更具有推广性
  */
 public class LC0034 {
     public int[] searchRange(int[] nums, int target) {

@@ -111,8 +111,8 @@ public class TreeTraverse{
         level++;
         TreeNode node;
 
-        while (queue.peek() != null){
-            node = queue.remove();
+        while (!queue.isEmpty()){
+            node = queue.pollFirst();
             levelCntUp--;
 
 //            if(node.left != null || node.right != null){

@@ -1,10 +1,10 @@
-package leetcode;
+package leetcode.heap;
 
 import java.io.*;
 import java.util.*;
 /**
  * 《测试用例的输入输出问题》
- *
+ * 用到了 堆 数据结构
  * 253. 会议室II https://leetcode-cn.com/problemset/algorithms/?search=253
  * 雷同 1428. 活动安排问题 http://www.51nod.com/Challenge/Problem.html#problemId=1428 由这个引出了《测试用例的输入输出问题》
  * 《300分钟搞定算法》https://www.bilibili.com/video/BV1SK411V7Lq?p=8

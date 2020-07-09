@@ -5,7 +5,8 @@ import java.util.Arrays;
 import java.util.Deque;
 
 /**
- * 双端队列
+ * 双端队列，也可以称之为单调栈
+ *
  * 239. 滑动窗口最大值 https://leetcode-cn.com/problems/sliding-window-maximum/
  *
  * 这个维护逻辑就是单调栈（Monotonous Stack，也可以说是单调队列）。本题根据题设，是要求栈上元素只能单调递减，

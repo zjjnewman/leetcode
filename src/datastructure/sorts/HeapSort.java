@@ -1,11 +1,8 @@
 package datastructure.sorts;
 
-import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIFactoryMethod;
-
 import java.io.*;
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.StringTokenizer;
 
 /**
  * heapSort 要求是完全二叉树，用数组表示，即使用树，树节点里还要加父亲节点的指针，暂时不与实现。
@@ -28,29 +25,14 @@ public class HeapSort implements SortAlgorithm {
      *
      */
 
+    // 堆排序
+    public void heapSort(Integer nums[], int low, int high){
+        makeBigHeap(nums, low, high);
 
-    // 针对头结点点的堆调整
-
-    public void adjustHeadNodeForBigHeap(Integer[] array, int low, int high){
-        // i为起始点
-        int i = low;
-        // i 的左孩子
-        int j = (i << 1) + 1;
-        while (j <= high){
-            // 如果右孩子比左孩子大，记下右孩子
-            if(j < high && array[j] < array[j+1]){
-                j++;
-            }
-
-            // 如果不满足大顶堆，交换父亲和孩子位置
-            if(array[i] < array[j]){
-                swap(array, i, j);
-                // 接着调整换下来的点
-                i = j;
-                j = (i << 1) + 1;
-            } else { //否则满足堆定义，无需调整
-                break;
-            }
+        while (high >= low){
+            swap(nums, low, high);
+            high--;
+            downSift(nums, low, high);
         }
     }
 
@@ -58,23 +40,70 @@ public class HeapSort implements SortAlgorithm {
      * 有bug，需要判断边界条件 array.len == 1的条件
      * @param array
      */
-    public void makeBigHeap(Integer[] array){
+    public void makeBigHeap(Integer[] array, int low, int high){
         // 每一个叶子节点可以视为一个 大顶堆，然后针对倒数第一个父节点，作为需要调整的堆头结点，调用上面方法
         // 倒数第一个父节点的计算方法为  (array.length - 1 - 1)/2
-        if(array.length == 1){
+        if(high >= array.length || low < 0){
             return;
         }
-        for (int i = ((array.length - 1 - 1)>>>1); i >= 0 ; i--) {
-            adjustHeadNodeForBigHeap(array, i, array.length - 1);
+
+        int lastFather = (high - 1)/2;
+        for (int i = lastFather; i >= low; i--) {
+            downSift(array, i, high);
         }
     }
+
+    // 针对头结点的,堆向下调整
+    public void downSift(Integer[] array, int low, int high){
+        // father为起始点
+        int father = low;
+        // father 的左孩子
+        int child = (father << 1) + 1;
+        while (child <= high){
+            // 如果右孩子比左孩子大，记下右孩子
+            if(child < high && array[child] < array[child + 1]){
+                child++;
+            }
+
+            // 如果不满足大顶堆，交换父亲和孩子位置
+            if(array[father] < array[child]){
+                swap(array, father, child);
+                // 接着调整换下来的点
+                father = child;
+                child = (father << 1) + 1;
+            } else { //否则满足堆定义，无需调整
+                break;
+            }
+        }
+    }
+
+
+    /**
+     * 补充，还有个向上调整，即考虑在数组中追加元素的时候，就需要向上调整
+     * （数组中拿取堆头元素，是向下调整）
+     */
+    // 大顶堆向上调整（在数组后面追加元素）
+    public void upSift(Integer[] nums, int low, int high){
+        int child = high;
+        int father = (child - 1)/2;
+        while (father >= low){
+            if(nums[child] > nums[father]){
+                swap(nums, child, father);
+                child = father;
+                father = (child - 1)/2;
+            } else {
+                break;
+            }
+        }
+    }
+
 
     public static void main(String[] args) throws IOException {
         HeapSort heapSort = new HeapSort();
         // 堆化后序列为 [97, 76, 65, 49, 49, 13, 27, 38]
 //        Integer[] is = new Integer[]{49, 38, 65, 97, 76, 13, 27, 49};
         Integer[] is = new Integer[]{49};
-        heapSort.makeBigHeap(is);
+        heapSort.makeBigHeap(is, 0, 0);
         System.out.println(Arrays.toString(is));
 
     }

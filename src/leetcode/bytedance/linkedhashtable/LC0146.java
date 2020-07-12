@@ -58,7 +58,7 @@ public class LC0146 {
         public int get(int key) {
             /**
              * 1 获取这个key
-             * 2 这个key刚被使用，要改变其在链表中的位置，应该放在队头表明最近使用了
+             * 2 这个key刚被使用，要改变其在链表中的位置，应该放在队尾表明最近使用了
              */
             // 这种比较耗时
 //            try {
@@ -82,8 +82,8 @@ public class LC0146 {
         public void put(int key, int value) {
             /**
              * 首先容量固定，不能扩容
-             * 1 若put的值已存在，或不存在并且，容量未满可以直接插入，并且放在link头
-             * 2 若put的值为新值，并且容量已满，要把其中LRU的值换出来，并且把刚put的值放在link头
+             * 1 若put的值已存在，或不存在并且，容量未满可以直接插入，并且放在link尾
+             * 2 若put的值为新值，并且容量已满，要把其中LRU的值换出来，并且把刚put的值放在link尾
              */
             super.put(key, value);
         }

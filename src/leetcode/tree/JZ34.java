@@ -123,10 +123,10 @@ public class JZ34 {
         scanner.close();
 //        Scanner sc = new Scanner(System.in);
 //        while (sc.hasNextLine()) {
-//            String str = sc.nextLine();
-//            if (str.isEmpty())
+//            String leetcode.str = sc.nextLine();
+//            if (leetcode.str.isEmpty())
 //                break;
-//            System.out.println(str);
+//            System.out.println(leetcode.str);
 //        }
 //        sc.close();
 

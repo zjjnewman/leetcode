@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.search;
 
 import com.sun.org.apache.xerces.internal.dom.PSVIAttrNSImpl;
 import leetcode.tree.LeetCode0437;

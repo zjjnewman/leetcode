@@ -253,7 +253,7 @@ public class LC0005 {
     public static void main(String[] args) {
 //        //从输入中得到数据并处理
 //        Scanner scanner = new Scanner(System.in);
-////        String str = scanner.nextLine();
+////        String leetcode.str = scanner.nextLine();
 //        int num = scanner.nextInt();
 //
 //        for (int i = 0; i < num; i++) {

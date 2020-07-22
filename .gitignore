@@ -1,3 +1,5 @@
 /src/Test$OOMobject.class
 /src/Test.class
 /src/PlainOioServer.java
+/out/
+*.class

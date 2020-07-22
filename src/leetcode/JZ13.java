@@ -1,8 +1,8 @@
 package leetcode;
 
-import sun.security.action.PutAllAction;
+import sun.misc.Queue;
 
-import java.io.FileReader;
+import java.util.LinkedList;
 
 /**
  * 剑指 Offer 13. 机器人的运动范围 https://leetcode-cn.com/problems/ji-qi-ren-de-yun-dong-fan-wei-lcof/
@@ -25,71 +25,80 @@ public class JZ13 {
      */
 
     int max = 0;
-    public int movingCount(int m, int n, int k) {
-
-        if(m == 0 || n == 0){
-            return 0;
-        }
-
-        int[][] isAccessed = new int[m][n];
-
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                if (digitSum(i, j) > k){
-                    isAccessed[i][j] = 2;
-                }
-            }
-        }
-
-        helper(isAccessed, 0, 0, k);
-
-        return max;
-    }
-
-
-    public void helper(int[][] isAccessed, int row, int column, int k){
-
-        if(row >= isAccessed.length || row < 0 || column >= isAccessed[0].length || column < 0){
-            return;
-        }
-
-        if(isAccessed[row][column] == 2){
-            return;
-        }
-
-        if (isAccessed[row][column] == 0){
-            max++;
-            isAccessed[row][column] = 1;
-        }
-        //上 row - 1
-        helper(isAccessed, row - 1, column, k);
-        //下
-        helper(isAccessed, row + 1, column, k);
-        //左
-        helper(isAccessed, row, column - 1, k);
-        //右
-        helper(isAccessed, row, column + 1, k);
-    }
-
-
     // 求数位和
     public int digitSum(int row, int column){
         int sumR = 0;
         int sumC = 0;
-        while (row % 10 != 0){
+        while (row != 0){
             sumR = row % 10 + sumR;
             row = row / 10;
         }
-        while (column % 10 != 0){
+        while (column != 0){
             sumC = column % 10 + sumC;
             column = column / 10;
         }
         return sumR + sumC;
     }
 
-    public static void main(String[] args) {
+    public int movingCount(int m, int n, int k) throws InterruptedException {
+
+        if(m == 0 || n == 0){
+            return 0;
+        }
+
+        boolean[][] visited = new boolean[m][n];
+
+        dfs(visited, 0, 0, k);
+        return max;
+
+    }
+
+
+    public void bfs(boolean[][] visited, int row, int column, int k) throws InterruptedException {
+        Queue<int[]> queue = new Queue<int[]>();
+        queue.enqueue(new int[]{row, column});
+        while (!queue.isEmpty()){
+            int[] coordinate = queue.dequeue();
+            if(coordinate[0] >= visited.length || coordinate[1] >= visited[0].length ||
+                    digitSum(coordinate[0], coordinate[1]) > k || visited[coordinate[0]][coordinate[1]]){
+                continue;
+            }
+            max++;
+            visited[coordinate[0]][coordinate[1]] = true;
+            queue.enqueue(new int[]{coordinate[0] + 1, coordinate[1]});
+            queue.enqueue(new int[]{coordinate[0], coordinate[1] + 1});
+        }
+    }
+
+
+    public void dfs(boolean[][] visited, int row, int column, int k){
+        if(row >= visited.length || column >= visited[0].length || digitSum(row, column) > k || visited[row][column]){
+            return;
+        }
+        max++;
+        visited[row][column] = true;
+        //下
+        dfs(visited, row + 1, column, k);
+        //右
+        dfs(visited, row, column + 1, k);
+    }
+
+    public int dfs1(boolean[][] visited, int row, int column, int k) {
+        if(row >= visited.length || column >= visited[0].length || k < digitSum(row, column) || visited[row][column]){
+            return 0;
+        }
+        visited[row][column] = true;
+        return 1 + dfs1(visited, row + 1, column, k) +
+                   dfs1(visited, row, column + 1, k);
+    }
+
+
+    public static void main(String[] args) throws InterruptedException {
         JZ13 l = new JZ13();
-        System.out.println(l.movingCount(1,2,1));
+        System.out.println(l.movingCount(38,15,9));
+        System.out.println(l.digitSum(11, 20));
+
+
     }
 
 }

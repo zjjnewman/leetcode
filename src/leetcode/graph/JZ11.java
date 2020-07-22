@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.graph;
 
 import com.sun.org.apache.regexp.internal.RE;
 import com.sun.xml.internal.ws.runtime.config.TubelineFeatureReader;

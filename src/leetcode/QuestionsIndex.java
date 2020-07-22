@@ -1,5 +1,9 @@
 package leetcode;
 
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
+
 public class QuestionsIndex {
     /**
      * 记录:
@@ -21,6 +25,10 @@ public class QuestionsIndex {
      */
 
 
+    public static void main(String[] args) {
+
+//        HashSet
+    }
 
 
 }

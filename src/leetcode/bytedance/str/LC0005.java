@@ -250,6 +250,29 @@ public class LC0005 {
     }
 
 
+    public int[] kmpNext1(String str){
+
+        int i = 0;
+        int j = -1;
+        int[] next = new int[str.length()];
+        next[0] = -1;
+
+        while (i < str.length()){
+
+            if(j < 0 || str.charAt(j) == str.charAt(i)){
+                j++;
+                i++;
+                next[i] = j;
+            } else {
+                j = next[j];
+            }
+
+        }
+
+        return next;
+    }
+
+
     public static void main(String[] args) {
 //        //从输入中得到数据并处理
 //        Scanner scanner = new Scanner(System.in);

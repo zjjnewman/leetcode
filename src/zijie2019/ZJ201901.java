@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 /**
- * [编程题]万万没想到之聪明的编辑 https://www.nowcoder.com/test/question/42852fd7045c442192fa89404ab42e92?pid=16516564&tid=35258752
+ * [编程题]万万没想到之聪明的编辑 https://www.nowcoder.com/test/question/analytic?tid=35258752
  */
 public class ZJ201901 {
     /**

@@ -52,7 +52,7 @@ This <a href = "http://algs4.cs.princeton.edu/code/wishlist.txt">wishlist.txt</a
 contains a list of algorithms and data structures that we would
 like to add to the repository. Indeed, several of the algorithms and
 data structures in this repository were contributed by others. If interested, please
-follow the same style as the code in the repository and thoroughly test your
+follow the same style as the code in the repository and thoroughly Test your
 code before contacting us.
 
 ## Support for other programming languages

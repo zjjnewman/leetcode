@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.dp;
 
 /**
  * 剑指 Offer 19. 正则表达式匹配 https://leetcode-cn.com/problems/zheng-ze-biao-da-shi-pi-pei-lcof/
@@ -7,6 +7,50 @@ package leetcode;
  * ———————————————————留坑—————————————————————
  */
 public class JZ19 {
+
+
+    // 题解
+    public boolean isMatch(String a, String b){
+        int aL = a.length();
+        int bL = b.length();
+        boolean[][] f = new boolean[aL + 1][bL + 1];
+
+        for (int i = 0; i < aL; i++) {
+            for (int j = 0; j < bL; j++) {
+                //分为空正则和非空正则两种
+                if(j == 0){//若是空正则
+                    // 若空串 必为匹配
+                    f[i][j] = (i == 0);
+                } else {// 若不是空正则，2种情况：1.* 2.非*
+                    if(b.charAt(j - 1) != '*'){ // 非 *
+                        if(i > 0 && b.charAt(j - 1) == a.charAt(i - 1) || b.charAt(j - 1) == '.'){
+                            f[i][j] = f[i - 1][j - 1];
+                        }
+                    } else { // 碰到* 分为 看和 不看
+                        if(j >= 2){ // 不看
+                            f[i][j] = f[i][j] | f[i][j - 2];
+                        }
+
+                        if(i >= 1 && j >= 2 && (a.charAt(i - 1) == b.charAt(j - 2) || b.charAt(j - 2) ==  '.')){
+                            f[i][j] = f[i][j] | f[i - 1][j];
+                        }
+
+                    }
+                }
+
+            }
+        }
+
+        return f[aL][bL];
+    }
+
+
+
+
+
+
+
+
 
     /**
      * 请实现一个函数用来匹配包含'. '和'*'的正则表达式。模式中的字符'.'表示任意一个字符，而'*'表示它前面的字符可以出现任意次（含0次）。
@@ -138,39 +182,7 @@ public class JZ19 {
 
 
 
-    // 题解写法
-    public boolean isMatch(String str, String pattern) {
-        int n = str.length();
-        int m = pattern.length();
-        boolean[][] f = new boolean[n + 1][m + 1];
 
-        for (int i = 0; i <= n; i++) {
-            for (int j = 0; j <= m; j++) {
-                //分成空正则和非空正则两种
-                if (j == 0) {
-                    f[i][j] = i == 0;
-                } else {
-                    //非空正则分为两种情况 * 和 非*
-                    if (pattern.charAt(j - 1) != '*') {
-                        if (i > 0 && (str.charAt(i - 1) == pattern.charAt(j - 1) || pattern.charAt(j - 1) == '.')) {
-                            f[i][j] = f[i - 1][j - 1];
-                        }
-                    } else {
-                        //碰到 * 了，分为看和不看两种情况
-                        //不看
-                        if (j >= 2) {
-                            f[i][j] |= f[i][j - 2];
-                        }
-                        //看
-                        if (i >= 1 && j >= 2 && (str.charAt(i - 1) == pattern.charAt(j - 2) || pattern.charAt(j - 2) == '.')) {
-                            f[i][j] |= f[i - 1][j];
-                        }
-                    }
-                }
-            }
-        }
-        return f[n][m];
-    }
 
 
 

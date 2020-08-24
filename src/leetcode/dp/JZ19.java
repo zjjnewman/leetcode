@@ -40,7 +40,6 @@ public class JZ19 {
 
             }
         }
-
         return f[aL][bL];
     }
 

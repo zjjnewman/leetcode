@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.Scanner;
 
-class Main {
+class ain {
 
     /**
      *
@@ -63,7 +63,7 @@ class Main {
             nums[i] = scanner.nextInt();
         }
 
-        Main p1 = new Main();
+        ain p1 = new ain();
         int high = p1.high(nums, m, x);
 
         bufferedWriter.write(high+"");

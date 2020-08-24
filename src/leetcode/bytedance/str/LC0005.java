@@ -257,9 +257,9 @@ public class LC0005 {
         int[] next = new int[str.length()];
         next[0] = -1;
 
-        while (i < str.length()){
+        while (i < str.length() - 1){
 
-            if(j < 0 || str.charAt(j) == str.charAt(i)){
+            if(j == -1 || str.charAt(j) == str.charAt(i)){
                 j++;
                 i++;
                 next[i] = j;

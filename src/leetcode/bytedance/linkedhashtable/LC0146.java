@@ -52,6 +52,7 @@ public class LC0146 {
 
         @Override
         protected boolean removeEldestEntry(Map.Entry eldest) {
+            // 如果超过固定容量，就移除最近最少使用的节点
             return this.size() > capacity;
         }
 
@@ -66,14 +67,12 @@ public class LC0146 {
 //            } catch (NullPointerException e){
 //                return -1;
 //            }
-
 //            Integer v;
 //            if((v = super.get(key)) == null){
 //                return -1;
 //            } else {
 //                return v;
 //            }
-
 //            return super.get(key) == null ? -1 : super.get(key);
 
             return super.getOrDefault(key, -1);

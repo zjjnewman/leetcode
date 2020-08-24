@@ -1,10 +1,9 @@
-package zijie2019;
+package qiuzhao.zijie2019;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.*;
-import java.util.stream.Stream;
 
 /**
  * 万万没想到之抓捕孔连顺 https://www.nowcoder.com/question/next?pid=16516564&qid=362290&tid=35307451

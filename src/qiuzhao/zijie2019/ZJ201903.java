@@ -1,4 +1,4 @@
-package zijie2019;
+package qiuzhao.zijie2019;
 
 import java.util.*;
 

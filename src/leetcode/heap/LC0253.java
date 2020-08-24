@@ -3,6 +3,8 @@ package leetcode.heap;
 import java.io.*;
 import java.util.*;
 /**
+ *
+ * 会议室 教室
  * 《测试用例的输入输出问题》
  * 用到了 堆 数据结构
  * 253. 会议室II https://leetcode-cn.com/problemset/algorithms/?search=253
@@ -50,30 +52,6 @@ public class LC0253 {
             startOrderedArray[i] = new Meeting(scanner.nextInt(), scanner.nextInt());
         }
 
-        //主要程序内容写在这里
-
-        // 解答开始
-        // 构造数据结构
-
-        // 读入数据
-
-        // 读入行数
-
-
-        // 用这个数组接收连着的几行数据
-//        Meeting[] startOrderedArray = new Meeting[n];
-//        for (int i = 0; i < n; i++) {
-//            // 读入一行
-//            String s = reader.readLine();
-//            // 一行有两个数据，去除前后的空格
-//            s = s.trim();
-//            // 把两个数据中间的空格用 一个','代替，方便分割String数组
-//            s = s.replaceAll("\\s+", ",");
-//            // 分割string数组，0是起始时间 1是结束时间
-//            String ss[] = s.split(",");
-//            // 把开始结束时间放入meeting数据结构
-//            startOrderedArray[i] = new Meeting(Integer.parseInt(ss[0]), Integer.parseInt(ss[1]));
-//        }
 
         // 首先按照会议起始时间排序
         Arrays.sort(startOrderedArray, new Comparator<Meeting>() {

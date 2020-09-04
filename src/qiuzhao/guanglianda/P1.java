@@ -1,4 +1,4 @@
-package guanglianda;
+package qiuzhao.guanglianda;
 
 import java.io.BufferedWriter;
 import java.io.IOException;

@@ -55,7 +55,7 @@ public class Main3 {
                     break;
                 }
             }
-            //dp[i-1]表示不选第i个任务，后边表示选第i个任务
+            //zhuanxiang.dp[i-1]表示不选第i个任务，后边表示选第i个任务
             if(itemp == -1){
                 dp[i] = Math.max(dp[i-1], temp.income);
             } else {

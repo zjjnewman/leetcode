@@ -1,4 +1,4 @@
-package guanglianda;
+package qiuzhao.guanglianda;
 
 import java.util.Scanner;
 

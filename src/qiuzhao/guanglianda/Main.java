@@ -1,6 +1,5 @@
-package guanglianda;
+package qiuzhao.guanglianda;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {

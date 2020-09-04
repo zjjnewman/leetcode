@@ -1,11 +1,8 @@
-package guanglianda;
-
-import sun.security.util.Length;
+package qiuzhao.guanglianda;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
-import java.lang.reflect.AnnotatedArrayType;
 import java.util.*;
 
 public class P2 {

@@ -5,9 +5,23 @@ import datastructure.tree.TreeUtils;
 import javax.print.attribute.standard.NumberUp;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Scanner;
 import java.util.Stack;
 
 public class Test {
+
+
+    public static double methoed(int n){
+        double dInit = 1000.0;
+        int cnt = 0;
+        double dR = 0;
+        while (cnt != n){
+            dR = dR + dInit + dInit/2;
+            dInit = dInit/2;
+            cnt++;
+        }
+        return dR;
+    }
 
 
 
@@ -39,7 +53,27 @@ public class Test {
         return Math.min(f(nums, i+1,j),f(nums, i,j-1));
     }
 
-    public static void main(String[] args) {
-        System.out.println(PredictTheWinner(new int[]{1, 5, 233, 7}));
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int n=sc.nextInt();
+        String[]pokers=new String[n];
+        for (int i = 0; i < n; i++) {
+            pokers[i]=sc.next();
+        }
+//        String[] pokers={"J","Q","K"};
+        for (int i = 0; i < pokers.length; i++) {
+            if(pokers[i]=="J"){
+                pokers[i]="11";
+            }
+            if(pokers[i]=="Q"){
+                pokers[i]="12";
+            }
+            if(pokers[i]=="K"){
+                pokers[i]="13";
+            }
+        }
+        for (int i = 0; i < pokers.length; i++) {
+            System.out.println(pokers[i]);
+        }
     }
 }

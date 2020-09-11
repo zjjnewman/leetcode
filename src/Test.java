@@ -54,26 +54,10 @@ public class Test {
     }
 
     public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
-        int n=sc.nextInt();
-        String[]pokers=new String[n];
-        for (int i = 0; i < n; i++) {
-            pokers[i]=sc.next();
-        }
-//        String[] pokers={"J","Q","K"};
-        for (int i = 0; i < pokers.length; i++) {
-            if(pokers[i]=="J"){
-                pokers[i]="11";
-            }
-            if(pokers[i]=="Q"){
-                pokers[i]="12";
-            }
-            if(pokers[i]=="K"){
-                pokers[i]="13";
-            }
-        }
-        for (int i = 0; i < pokers.length; i++) {
-            System.out.println(pokers[i]);
-        }
     }
+
+
+
+
+
 }

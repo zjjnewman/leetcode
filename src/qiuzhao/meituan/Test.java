@@ -43,4 +43,17 @@ function done(input){
     }
 }
 console.log(done("antzone"));
+
+
+function done(input){
+    var uPattern1 = /^\/(\w+\/?)[a-z]$/;
+    if (input.match(uPattern1)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+console.log(done("antzone"));
+
+
 */

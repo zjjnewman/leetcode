@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * 39. 组合总和 https://leetcode-cn.com/problems/combination-sum/submissions/
+ */
+
 public class LC0039 {
     public static List<List<Integer>> combinationSum(int[] candidates, int target) {
         ArrayList<List<Integer>> ans = new ArrayList<>();

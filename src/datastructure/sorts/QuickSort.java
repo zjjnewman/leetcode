@@ -43,6 +43,7 @@ public class QuickSort implements SortAlgorithm {
                 swap(array, low, high);
             }
         }
+        System.out.println(Arrays.toString(array));
         quickSort(array, l, low - 1);
         quickSort(array, low + 1, r);
     }
@@ -95,9 +96,10 @@ public class QuickSort implements SortAlgorithm {
 
     public static void main(String[] args) {
         Character[] chars = {'d','a','o','e','b'};
-        Integer[] integers = new Integer[]{84,7,5,67,36,74,87,32,94,32,6,35,64,237,43};
+//        Integer[] integers = new Integer[]{84,7,5,67,36,74,87,32,94,32,6,35,64,237,43};
+        Integer[] integers = new Integer[]{25,84,21,47,15,27,68,35,20};
         QuickSort qs = new QuickSort();
-        qs.quickSort(integers, 0, 14);
+        qs.quickSort(integers, 0, 8);
         System.out.println(Arrays.toString(integers));
     }
 }

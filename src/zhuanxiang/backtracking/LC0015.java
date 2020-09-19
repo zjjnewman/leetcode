@@ -4,8 +4,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * 15. 三数之和 https://leetcode-cn.com/problems/3sum/
+ */
+
 public class LC0015 {
-    public List<List<Integer>> threeSum(int[] nums) {
+    public static List<List<Integer>> threeSum(int[] nums) {
         ArrayList<List<Integer>> ans = new ArrayList<>();
         ArrayList<Integer> add = new ArrayList<>();
         Arrays.sort(nums);
@@ -13,7 +17,7 @@ public class LC0015 {
         return ans;
     }
 
-    public void dfs(int[] nums, int post, int cnt, int sum, List<List<Integer>> ans, List<Integer> add){
+    public static void dfs(int[] nums, int post, int cnt, int sum, List<List<Integer>> ans, List<Integer> add){
         if(cnt == 0 && sum == 0){
             ans.add(new ArrayList<>(add));
             return;

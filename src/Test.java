@@ -3,60 +3,60 @@ import datastructure.tree.TreeNode;
 import datastructure.tree.TreeUtils;
 
 import javax.print.attribute.standard.NumberUp;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Scanner;
-import java.util.Stack;
+import java.io.UnsupportedEncodingException;
+import java.util.*;
+
+/**
+ * {@link java.util.concurrent.locks.ReentrantReadWriteLock}
+ */
 
 public class Test {
+    static double a;
 
+    public void method(String str){
+        byte[] strBytes = new byte[str.length()];
+        for (int i = 0; i < str.length(); i++) {
+            strBytes[i] = (byte) str.charAt(i);
+        }
+    }
 
-    public static double methoed(int n){
-        double dInit = 1000.0;
-        int cnt = 0;
-        double dR = 0;
-        while (cnt != n){
-            dR = dR + dInit + dInit/2;
-            dInit = dInit/2;
+    volatile int  cnt=0;
+
+    Thread T1 = new Thread(new Runnable(){
+        @Override
+        public  void run(){
             cnt++;
         }
-        return dR;
-    }
+    });
 
-
-
-    public static boolean PredictTheWinner(int[] nums) {
-        if(nums == null || nums.length == 0){
-            return false;
+    Thread T2 = new Thread(new Runnable(){
+        @Override
+        public  void run(){
+            try {
+                T1.join();
+                cnt--;
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
-        int sum  = 0;
-        for (int i = 0; i < nums.length; i++) {
-            sum = sum + nums[i];
+    });
+
+    Thread T3 = new Thread(new Runnable(){
+        @Override
+        public void run(){
+            try {
+                T2.join();
+                System.out.println(cnt);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
-        int a=0;
-        return (a = f(nums, 0, nums.length - 1)) > sum - a;
+    });
+
+    public static void main(String[] args) throws UnsupportedEncodingException {
+
+
     }
-
-    //先发者
-    public static int f(int[] nums, int i, int j){
-        if(i == j){
-            return nums[i];
-        }
-        return Math.max(nums[i] + s(nums, i+1, j), nums[j] + s(nums, i, j - 1));
-    }
-
-    //后发者
-    public static int s(int[] nums, int i, int j){
-        if(i==j){
-            return 0;
-        }
-        return Math.min(f(nums, i+1,j),f(nums, i,j-1));
-    }
-
-    public static void main(String[] args){
-    }
-
-
 
 
 

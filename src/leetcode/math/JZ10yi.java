@@ -22,7 +22,6 @@ public class JZ10yi {
 
         while (i >= 2){
             a3 = (int) ((a1 + a2) % (1e9 + 7));
-
             a1 = a2;
             a2 = a3;
             i--;
@@ -46,7 +45,7 @@ public class JZ10yi {
 
     public static void main(String[] args) {
         JZ10yi l = new JZ10yi();
-        System.out.println(l.fib(8));
+        System.out.println(l.fib(2));
 //        System.out.println(l.fib1(45));
 
         System.out.println(1e9);

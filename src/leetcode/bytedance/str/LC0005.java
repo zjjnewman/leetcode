@@ -258,7 +258,6 @@ public class LC0005 {
         next[0] = -1;
 
         while (i < str.length() - 1){
-
             if(j == -1 || str.charAt(j) == str.charAt(i)){
                 j++;
                 i++;
@@ -268,7 +267,6 @@ public class LC0005 {
             }
 
         }
-
         return next;
     }
 

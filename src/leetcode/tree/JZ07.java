@@ -47,31 +47,21 @@ public class JZ07 {
             return root;
         }
 
+
         public TreeNode buildTreeHelper(Map<Integer, Integer> map, int[] preorder, int low, int high) {
             if(preIdx >= preorder.length){
                 return null;
             }
-
             int rootInIdx = map.get(preorder[preIdx]);
-
             if(rootInIdx < low || rootInIdx > high){
                 return null;
             }
-
-//            int childIdx = map.get(preorder[preIdx + 1]);
-
             TreeNode currRoot = new TreeNode(preorder[preIdx]);
             preIdx++;
-
             currRoot.left = buildTreeHelper(map, preorder, low, rootInIdx - 1);
-
             currRoot.right= buildTreeHelper(map, preorder, rootInIdx + 1, high);
-
             return currRoot;
         }
-
-
-
 
         // *********************************************************************************************************
         public TreeNode buildTree1(int[] preorder, int[] inorder) {
